@@ -6,7 +6,6 @@ async function pushComment(repoToken: string, comment: string): Promise<void> {
   const {
     payload: {pull_request: pullRequest, repository}
   } = github.context
-
   const repoFullName = repository?.full_name
 
   if (!pullRequest || !repoFullName) {

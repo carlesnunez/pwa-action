@@ -3506,11 +3506,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const node_fetch_1 = __importDefault(__webpack_require__(454));
-const github_1 = __importDefault(__webpack_require__(469));
+const github = __importStar(__webpack_require__(469));
 function pushComment(repoToken, comment) {
     var _a;
     return __awaiter(this, void 0, void 0, function* () {
-        const { payload: { pull_request: pullRequest, repository } } = github_1.default.context;
+        const { payload: { pull_request: pullRequest, repository } } = github.context;
         const repoFullName = (_a = repository) === null || _a === void 0 ? void 0 : _a.full_name;
         if (!pullRequest || !repoFullName) {
             core.error('this action only works on pull_request events');
@@ -3519,7 +3519,7 @@ function pushComment(repoToken, comment) {
         else {
             const { number: issueNumber } = pullRequest;
             const [owner, repo] = repoFullName.split('/');
-            const octokit = new github_1.default.GitHub(repoToken);
+            const octokit = new github.GitHub(repoToken);
             yield octokit.issues.createComment({
                 owner,
                 repo,
