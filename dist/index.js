@@ -3551,7 +3551,7 @@ function run() {
             core.debug(`Initializing our action`);
             const { repoToken, giphyToken } = getInputs();
             const randomGifUrl = yield getGifUrl(giphyToken);
-            yield pushComment(repoToken, randomGifUrl);
+            yield pushComment(repoToken, `![](${randomGifUrl})`);
             core.setOutput('time', new Date().toTimeString());
         }
         catch (error) {
