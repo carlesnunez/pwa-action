@@ -44,8 +44,7 @@ async function getGifUrl(token: string): Promise<string> {
   )
 
   const body = await res.json()
-  console.log(body)
-  return body.image_url
+  return body.data.image_url
 }
 
 async function run(): Promise<void> {
