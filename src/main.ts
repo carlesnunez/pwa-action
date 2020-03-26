@@ -54,7 +54,7 @@ async function run(): Promise<void> {
 
     const randomGifUrl = await getGifUrl(giphyToken)
 
-    await pushComment(repoToken, randomGifUrl)
+    await pushComment(repoToken, `![](${randomGifUrl})`)
 
     core.setOutput('time', new Date().toTimeString())
   } catch (error) {
