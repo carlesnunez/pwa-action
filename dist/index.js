@@ -3542,8 +3542,7 @@ function getGifUrl(token) {
     return __awaiter(this, void 0, void 0, function* () {
         const res = yield node_fetch_1.default(`http://api.giphy.com/v1/gifs/random?api_key=${token}`);
         const body = yield res.json();
-        console.log(body);
-        return body.image_url;
+        return body.data.image_url;
     });
 }
 function run() {
